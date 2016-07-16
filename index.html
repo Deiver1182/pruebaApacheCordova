@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="appPrueba"> <!-- Se agrega "ng-app", para definir que todo corra bajo angular -->
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        
+        <!-- Se agrega la referencia "jquery-2.2.4.min.js"-->
+        <script src="scripts/Referencias/jquery-2.2.4.min.js"></script>
+
+        <title>PruebaApache</title>
+    </head>
+    <body ng-controller="controlador"> <!-- Hace referencia al nombre del controlador, creado en app.js "controlador"-->
+        <h1>Titulo de la Aplicacion</h1>
+        <p> Mi Primera Aplicacion </p>
+
+       <input type="text" ng-model="valorFiltro" /> <!-- Crea una tabla y toma el estilo definido en el .css -->
+       <table>
+            <tr ng-repeat="item in listaPersonas|filter:valorFiltro"> <!-- Muestra una lista de elementos definidos en el "app.js" y lo permite filtrar -->
+                <td>{{ item.identificacion }}</td>
+                <td>{{ item.nombre }}</td>
+            </tr>
+        </table>
+
+        
+        <!--   -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+
+        <!-- Se agrega la referencia "angular.min.js y app.js"-->
+        <script src="scripts/Referencias/angular.min.js"></script>
+        <script src="app/app.js"></script>
+    </body>
+</html>
